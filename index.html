@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="site-title">المدینہ اکیڈمی & مکتبہ ڈیجیٹل</title>
-    <!-- گوگل فونٹس اور ٹریڈیشنل عربی -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS for E-book Store section -->
+    <title id="site-title">المدینہ اکیڈمی & بک اسٹور</title>
+    <!-- گوگل فونٹس -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS for Store Section -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,54 +18,122 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            500: '#10b981',
                             600: '#059669',
                             700: '#047857',
-                            800: '#065f46',
-                            900: '#022c22',
                         },
                         gold: {
-                            400: '#fbbf24',
                             500: '#f59e0b',
-                            600: '#d97706',
                         }
                     }
                 }
             }
         }
     </script>
+
     <style>
+        /* جمیل نوری نستعلیق فونٹ */
         @font-face {
             font-family: 'Jameel Noori Nastaleeq';
             src: url('https://www.fonts.net.pk/download/Jameel-Noori-Nastaleeq.ttf') format('truetype');
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: 'Cairo', Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: #f8fafc;
+            color: #334155;
             line-height: 1.8;
             scroll-behavior: smooth;
         }
-        html[lang="ur"] h1, html[lang="ur"] h2, html[lang="ur"] h3, html[lang="ur"] p, html[lang="ur"] a, html[lang="ur"] button, html[lang="ur"] select, html[lang="ur"] span, html[lang="ur"] strong, html[lang="ur"] label, html[lang="ur"] div, html[lang="ur"] nav, html[lang="ur"] footer {
+
+        /* 1. اردو سلیکٹ ہونے پر جمیل نوری نستعلیق */
+        html[lang="ur"] body, 
+        html[lang="ur"] h1, html[lang="ur"] h2, html[lang="ur"] h3, 
+        html[lang="ur"] p, html[lang="ur"] a, html[lang="ur"] button, 
+        html[lang="ur"] span, html[lang="ur"] div, html[lang="ur"] nav, html[lang="ur"] footer {
             font-family: 'Jameel Noori Nastaleeq', 'Cairo', Arial, sans-serif !important;
         }
-        /* ہیڈر سیکشن */
+
+        /* 2. عربی سلیکٹ ہونے پر Traditional Arabic / Amiri */
+        html[lang="ar"] body, 
+        html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, 
+        html[lang="ar"] p, html[lang="ar"] a, html[lang="ar"] button, 
+        html[lang="ar"] span, html[lang="ar"] div, html[lang="ar"] nav, html[lang="ar"] footer {
+            font-family: 'Amiri', 'Traditional Arabic', serif !important;
+        }
+
+        /* 3. انگلش سلیکٹ ہونے پر Cairo / Sans-Serif */
+        html[lang="en"] body, 
+        html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3, 
+        html[lang="en"] p, html[lang="en"] a, html[lang="en"] button, 
+        html[lang="en"] span, html[lang="en"] div, html[lang="en"] nav, html[lang="en"] footer {
+            font-family: 'Cairo', Arial, sans-serif !important;
+        }
+
+        /* جہاں بھی عربی عبارت / اقتباس آئے گا، وہ ہمیشہ ٹریڈیشنل عربی میں رہے گا */
+        .arabic-quote, .arabic-text {
+            font-family: 'Traditional Arabic', 'Amiri', serif !important;
+            background: #f0fdf4;
+            border-right: 4px solid #16a34a;
+            border-left: none;
+            padding: 12px 16px;
+            margin: 12px 0;
+            font-size: 1.35rem;
+            text-align: center;
+            color: #15803d;
+            font-weight: bold;
+            direction: rtl;
+        }
+
+        html[dir="ltr"] .arabic-quote {
+            border-left: 4px solid #16a34a;
+            border-right: none;
+        }
+
+        /* زبان کی تبدیلی کا فلوٹنگ ڈراپ ڈاؤن */
+        .lang-switcher-box {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0, 51, 44, 0.9);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        html[dir="ltr"] .lang-switcher-box {
+            left: auto;
+            right: 15px;
+        }
+
+        .lang-switcher-box select {
+            background: white;
+            color: #004d40;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         header {
             background-color: #004d40;
             color: white;
-            padding: 30px 15px 20px 15px;
+            padding: 40px 15px 25px 15px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: relative;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        /* نیویگیشن بار */
+
         nav {
             background-color: #00796b;
             display: flex;
@@ -76,112 +144,119 @@
             top: 0;
             z-index: 1000;
         }
+
         nav a {
             color: white;
             text-decoration: none;
-            margin: 5px;
-            padding: 10px 18px;
+            margin: 4px;
+            padding: 8px 16px;
             transition: background 0.3s;
             border-radius: 4px;
             font-weight: bold;
+            font-size: 1.1rem;
         }
+
         nav a:hover {
             background-color: #004d40;
         }
+
         nav a.admission-btn {
             background-color: #ff8f00;
         }
+
         nav a.store-btn {
             background-color: #d97706;
         }
+
         nav a.whatsapp-btn {
             background-color: #25D366;
         }
-        /* مین کنٹینر */
+
         .container {
             width: 90%;
             max-width: 1100px;
             margin: auto;
-            overflow: hidden;
             padding: 30px 0;
         }
+
         section {
             background: white;
             margin-bottom: 30px;
             padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
         }
+
         section h2 {
             color: #004d40;
             margin-bottom: 15px;
-            border-bottom: 2px solid #00796b;
+            border-bottom: 3px solid #00796b;
             padding-bottom: 5px;
             display: inline-block;
-            font-size: 2.1rem;
+            font-size: 2rem;
         }
+
         .courses-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
+
         .course-card {
-            background: #f1f8e9;
-            border: 1px solid #c8e6c9;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             padding: 20px;
-            border-radius: 8px;
-            text-align: right;
+            border-radius: 10px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
+
         .course-card h3 {
-            color: #2e7d32;
+            color: #047857;
             margin-bottom: 10px;
             text-align: center;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
         }
+
         .course-details {
             display: none;
             background: #ffffff;
             padding: 15px;
-            border-radius: 6px;
-            border: 1px dashed #81c784;
+            border-radius: 8px;
+            border: 1px dashed #a7f3d0;
             margin-bottom: 15px;
             text-align: justify;
         }
+
         .details-btn {
             background-color: #00796b;
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
-            padding: 11px 14px;
+            padding: 10px 14px;
             width: 100%;
+            transition: 0.3s;
         }
-        .arabic-quote {
-            font-family: 'Traditional Arabic', 'Amiri', serif !important;
-            background: #f9fbe7;
-            border-right: 4px solid #7cb342;
-            padding: 12px;
-            margin: 12px 0;
-            font-size: 1.3rem;
-            text-align: center;
-            color: #1b5e20;
-            font-weight: bold;
+
+        .details-btn:hover {
+            background-color: #004d40;
         }
+
         .admission-box {
-            background: #fff8e1;
-            border: 2px dashed #ffb300;
+            background: #fffbe2;
+            border: 2px dashed #f59e0b;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
             text-align: center;
             margin-top: 20px;
         }
+
         footer {
-            background-color: #263238;
+            background-color: #1e293b;
             color: white;
             text-align: center;
             padding: 20px 0;
@@ -193,19 +268,27 @@
 
     <!-- ہیڈر -->
     <header>
-        <h1 style="font-size: 2.8rem;">المدینہ اکیڈمی & مکتبہ ڈیجیٹل</h1>
-        <p style="font-size: 1.35rem; color: #b2dfdb;">قرآن و عربی زبان کا بہترین ادارہ اور آن لائن ای بک سٹور (زیرِ نگرانی: أبو واصف)</p>
+        <div class="lang-switcher-box">
+            <span>🌐</span>
+            <select id="langSelect" onchange="changeLanguage(this.value)">
+                <option value="ur" selected>اردو</option>
+                <option value="ar">العربية</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+        <h1 id="header-title" style="font-size: 2.6rem;">المدینہ اکیڈمی & بک اسٹور</h1>
+        <p id="header-sub" style="font-size: 1.25rem; color: #b2dfdb;">قرآن و عربی زبان کا بہترین ادارہ اور آن لائن ای بک اسٹور (زیرِ نگرانی: أبو واصف)</p>
     </header>
 
-    <!-- نیویگیشن بار (مینو) -->
+    <!-- نیویگیشن بار (ترتیب: ہوم ➔ تعارف ➔ کورسز ➔ آن لائن داخلہ ➔ رابطہ ➔ مکتبہ (بک اسٹور) ➔ واٹس ایپ) -->
     <nav>
-        <a href="#home">ہوم پیج</a>
-        <a href="#about">تعارف</a>
-        <a href="#courses">ہمارے کورسز</a>
-        <a href="#store-section" class="store-btn">📚 ای بک سٹور</a>
-        <a href="#admission" class="admission-btn">📝 آن لائن داخلہ</a>
-        <a href="#contact">رابطہ</a>
-        <a href="https://wa.me/254180111857?text=السلام%20علیکم!%20میں%20معلومات%20چاہتا ہوں۔" target="_blank" class="whatsapp-btn">💬 واٹس ایپ چیٹ</a>
+        <a href="#home" id="nav-home">ہوم پیج</a>
+        <a href="#about" id="nav-about">تعارف</a>
+        <a href="#courses" id="nav-courses">ہمارے کورسز</a>
+        <a href="#admission" class="admission-btn" id="nav-admission">📝 آن لائن داخلہ</a>
+        <a href="#contact" id="nav-contact">رابطہ</a>
+        <a href="#store-section" class="store-btn" id="nav-store">📚 مکتبہ (بک اسٹور)</a>
+        <a href="https://wa.me/254180111857?text=السلام%20علیکم!" target="_blank" class="whatsapp-btn" id="nav-wa"><i class="fa-brands fa-whatsapp"></i> واٹس ایپ</a>
     </nav>
 
     <!-- مین کنٹینر -->
@@ -213,131 +296,332 @@
         
         <!-- ہوم / خوش آمدید -->
         <section id="home">
-            <h2>خوش آمدید</h2>
-            <p>مدینہ اکیڈمی میں آپ کو خوش آمدید کہاجاتا ہے۔ یہ ادارہ خاص طور پر ان طلباء کے لیے قائم کیا گیا ہے جو کم مدت میں قرآن پاک کی درست تلاوت اور عربی زبان و گرامر میں مہارت حاصل کرنا چاہتے ہیں۔</p>
+            <h2 id="welcome-title">خوش آمدید</h2>
+            <p id="welcome-desc">مدینہ اکیڈمی میں آپ کو خوش آمدید کہاجاتا ہے۔ یہ ادارہ خاص طور پر ان طلباء کے لیے قائم کیا گیا ہے جو کم مدت میں قرآن پاک کی درست تلاوت اور عربی زبان و گرامر میں مہارت حاصل کرنا چاہتے ہیں۔</p>
         </section>
 
         <!-- ہمارے بارے میں -->
         <section id="about">
-            <h2>ہمارے بارے میں</h2>
-            <p>المدینہ اکیڈمی کے بانی اور معلم <strong>أبو واصف</strong> ہیں۔ اکیڈمی کا بنیادی مقصد قرآن و سنت کی تعلیمات اور عربی زبان کے قواعد کو آسان فہم انداز میں عامۃ الناس تک پہنچانا ہے۔</p>
+            <h2 id="about-title">ہمارے بارے میں</h2>
+            <p id="about-desc">المدینہ اکیڈمی کے بانی اور معلم <strong>أبو واصف</strong> ہیں۔ اکیڈمی کا بنیادی مقصد قرآن و سنت کی تعلیمات اور عربی زبان کے قواعد کو آسان فہم انداز میں عامۃ الناس تک پہنچانا ہے۔</p>
         </section>
 
         <!-- کورسز -->
         <section id="courses">
-            <h2>ہمارے خصوصی کورسز</h2>
-            <p style="margin-bottom: 15px; color: #555;">کسی بھی کورس کی مکمل تفصیلات اور خصوصیات پڑھنے کے لیے نیچے دیے گئے بٹن پر کلک کریں:</p>
+            <h2 id="courses-title">ہمارے خصوصی کورسز</h2>
+            <p style="margin-bottom: 15px; color: #64748b;" id="courses-hint">کسی بھی کورس کی مکمل تفصیلات اور خصوصیات پڑھنے کے لیے نیچے دیے گئے بٹن پر کلک کریں:</p>
             
             <div class="courses-grid">
                 <!-- 1. ناظرہ قرآن پاک -->
                 <div class="course-card">
                     <div>
-                        <h3>ناظرہ قرآن پاک کورس</h3>
-                        <p class="course-short-desc">درست تجوید اور مخارج کے ساتھ قرآن پاک کی روانی سے تلاوت سیکھیں۔</p>
+                        <h3 id="c1-title">ناظرہ قرآن پاک کورس</h3>
+                        <p id="c1-short" style="text-align: center; color: #475569;">درست تجوید اور مخارج کے ساتھ قرآن پاک کی روانی سے تلاوت سیکھیں۔</p>
                         <div class="course-details" id="c1-details">
-                            <p>قرآن مجید کو درست تلفظ، تجوید اور فہم کے ساتھ سیکھنا ہر مسلمان کی خواہش ہوتی ہے۔</p>
-                            <div class="arabic-quote">«خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ»<br><span style="font-size: 1rem; font-weight: normal;">(تم میں سے بہترین شخص وہ ہے جو قرآن سیکھے اور اسے سکھائے۔)</span></div>
+                            <p id="c1-p1">قرآن مجید کو درست تلفظ، تجوید اور فہم کے ساتھ سیکھنا ہر مسلمان کی خواہش ہوتی ہے۔</p>
+                            <!-- عربی اقتباس ہمیشہ ٹریڈیشنل عربی میں رہے گا -->
+                            <div class="arabic-quote">
+                                «خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ»<br>
+                                <span style="font-size: 0.95rem; font-weight: normal; color: #334155;" id="c1-q-sub">(تم میں سے بہترین شخص وہ ہے جو قرآن سیکھے اور اسے سکھائے۔ - صحیح بخاری)</span>
+                            </div>
                         </div>
                     </div>
-                    <button class="details-btn" onclick="toggleDetails('c1-details', this)">مزید تفصیلات پڑھیں</button>
+                    <button class="details-btn" onclick="toggleDetails('c1-details', this)" id="c1-btn">مزید تفصیلات پڑھیں</button>
                 </div>
 
                 <!-- 2. عربی بول چال کورس -->
                 <div class="course-card">
                     <div>
-                        <h3>عربی بول چال کورس</h3>
-                        <p class="course-short-desc">روزمرہ کی گفتگو اور عربی جملے بنانے کا بہترین طریقہ۔</p>
+                        <h3 id="c2-title">عربی بول چال کورس</h3>
+                        <p id="c2-short" style="text-align: center; color: #475569;">روزمرہ کی گفتگو اور عربی جملے بنانے کا بہترین طریقہ۔</p>
                         <div class="course-details" id="c2-details">
-                            <p>عربی بول چال کا یہ جامع کورس روزمرہ گفتگو میں روانی پیدا کرنے کے لیے انتہائی مفید ہے۔</p>
-                            <div class="arabic-quote">«تَعَلَّمُوا الْعَرَبِيَّةَ فَإِنَّهَا مِنْ دِينِكُمْ»</div>
+                            <p id="c2-p1">عربی بول چال کا یہ جامع کورس روزمرہ گفتگو میں روانی پیدا کرنے کے لیے انتہائی مفید ہے۔</p>
+                            <!-- عربی اقتباس -->
+                            <div class="arabic-quote">
+                                «تَعَلَّمُوا الْعَرَبِيَّةَ فَإِنَّهَا مِنْ دِينِكُمْ»<br>
+                                <span style="font-size: 0.95rem; font-weight: normal; color: #334155;" id="c2-q-sub">(عربی زبان سیکھو کیونکہ یہ تمہارے دین کا حصہ ہے۔)</span>
+                            </div>
                         </div>
                     </div>
-                    <button class="details-btn" onclick="toggleDetails('c2-details', this)">مزید تفصیلات پڑھیں</button>
+                    <button class="details-btn" onclick="toggleDetails('c2-details', this)" id="c2-btn">مزید تفصیلات پڑھیں</button>
                 </div>
             </div>
-        </section>
-
-        <!-- ================= واصف ای بک سٹور سیکشن ================= -->
-        <section id="store-section" class="tw-bg-gray-900 tw-text-gray-100 tw-p-6 tw-rounded-2xl tw-shadow-2xl">
-            <div class="tw-flex tw-flex-col md:tw-flex-row md:tw-items-center tw-justify-between tw-gap-4 tw-mb-6">
-                <div>
-                    <h2 class="tw-text-2xl tw-font-bold tw-text-white">📚 واصف ڈیجیٹل ای بک سٹور</h2>
-                    <p class="tw-text-xs tw-text-gray-400">اپنی پسندیدہ اسلامی اور علمی ای بک منتخب کریں اور فوری ڈاؤن لوڈ کریں</p>
-                </div>
-                <!-- سرچ بار -->
-                <div class="tw-max-w-xs tw-w-full">
-                    <input type="text" id="search-input" placeholder="کتاب تلاش کریں..." 
-                        class="tw-w-full tw-px-3 tw-py-2 tw-bg-gray-800 tw-border tw-border-gray-700 tw-rounded-lg tw-text-sm tw-text-white focus:tw-outline-none focus:tw-border-emerald-500">
-                </div>
-            </div>
-
-            <!-- پروڈکٹ گرڈ -->
-            <div id="product-grid" class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-6"></div>
         </section>
 
         <!-- آن لائن ایڈمیشن سیکشن -->
         <section id="admission">
-            <h2>آن لائن داخلہ (Admission)</h2>
-            <p>اگر آپ ہمارے کسی بھی کورس میں داخلہ لینا چاہتے ہیں، تو نیچے دیے گئے بٹن پر کلک کر کے اپنا فارم پُر کریں:</p>
+            <h2 id="adm-title">آن لائن داخلہ (Admission)</h2>
+            <p id="adm-desc">اگر آپ ہمارے کسی بھی کورس میں داخلہ لینا چاہتے ہیں، تو نیچے دیے گئے بٹن پر کلک کر کے اپنا فارم پُر کریں:</p>
             <div class="admission-box">
-                <p style="font-size: 1.2rem; margin-bottom: 15px; font-weight: bold; color: #e65100;">داخلہ فارم جمع کروانے کے لیے نیچے کلک کریں:</p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUPeGuIIxhfc49VG5FET4e6yPVNcNrAQOBuDIWA0WGrDnMDw/viewform" target="_blank" style="background-color: #ff8f00; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold; font-size: 1.2rem;">فارم کھولیں اور داخلہ لیں</a>
+                <p style="font-size: 1.2rem; margin-bottom: 15px; font-weight: bold; color: #d97706;" id="adm-box-title">داخلہ فارم جمع کروانے کے لیے نیچے کلک کریں:</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUPeGuIIxhfc49VG5FET4e6yPVNcNrAQOBuDIWA0WGrDnMDw/viewform" target="_blank" style="background-color: #ff8f00; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold; font-size: 1.15rem;" id="adm-btn">فارم کھولیں اور داخلہ لیں</a>
             </div>
+        </section>
+
+        <!-- ================= واصف ای بک اسٹور / مکتبہ سیکشن ================= -->
+        <section id="store-section" class="tw-bg-slate-900 tw-text-slate-100 tw-p-6 tw-rounded-2xl tw-shadow-2xl">
+            <div class="tw-flex tw-flex-col md:tw-flex-row md:tw-items-center tw-justify-between tw-gap-4 tw-mb-6">
+                <div>
+                    <h2 class="tw-text-2xl tw-font-bold tw-text-white" id="store-title">📚 مکتبہ ڈیجیٹل (کتب برائے فروخت)</h2>
+                    <p class="tw-text-xs tw-text-slate-400" id="store-desc">اپنی پسندیدہ کتاب خریدنے کے لیے "کتاب خریدیں" کے بٹن پر کلک کریں</p>
+                </div>
+                <div class="tw-max-w-xs tw-w-full">
+                    <input type="text" id="search-input" placeholder="کتاب تلاش کریں..." 
+                        class="tw-w-full tw-px-3 tw-py-2 tw-bg-slate-800 tw-border tw-border-slate-700 tw-rounded-lg tw-text-sm tw-text-white focus:tw-outline-none focus:tw-border-emerald-500">
+                </div>
+            </div>
+
+            <!-- پروڈکٹس گرڈ -->
+            <div id="product-grid" class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-6"></div>
         </section>
 
         <!-- رابطہ -->
         <section id="contact">
-            <h2>رابطہ کیجئے</h2>
+            <h2 id="contact-title">رابطہ کیجئے</h2>
             <div style="line-height: 2.2;">
-                <p><strong>منتظم:</strong> أبو واصف</p>
-                <p><strong>فون نمبر / واٹس ایپ:</strong> +254180111857</p>
-                <p><strong>ای میل:</strong> islamforyou.academy@gmail.com</p>
+                <p><strong id="lbl-manager">منتظم:</strong> أبو واصف</p>
+                <p><strong id="lbl-phone">فون نمبر / واٹس ایپ:</strong> +254180111857</p>
+                <p><strong id="lbl-email">ای میل:</strong> islamforyou.academy@gmail.com</p>
             </div>
         </section>
     </div>
 
     <!-- فوٹر -->
     <footer>
-        <p>جملہ حقوق محفوظ ہیں &copy; 2026 - المدینہ اکیڈمی & مکتبہ ڈیجیٹل</p>
+        <p id="footer-text">جملہ حقوق محفوظ ہیں &copy; 2026 - المدینہ اکیڈمی & بک اسٹور</p>
     </footer>
 
-    <!-- جاوا اسکرپٹ -->
+    <!-- الترجمہ والملفات البرمجية (JavaScript) -->
     <script>
         function toggleDetails(id, btn) {
             const detailsBox = document.getElementById(id);
+            const lang = document.getElementById('html-root').getAttribute('lang');
+
             if (detailsBox.style.display === "block") {
                 detailsBox.style.display = "none";
-                btn.innerText = "مزید تفصیلات پڑھیں";
+                btn.innerText = (lang === 'ar') ? "عرض التفاصيل" : (lang === 'en') ? "Read Details" : "مزید تفصیلات پڑھیں";
             } else {
                 detailsBox.style.display = "block";
-                btn.innerText = "تفصیلات چھپائیں";
+                btn.innerText = (lang === 'ar') ? "إخفاء التفاصيل" : (lang === 'en') ? "Hide Details" : "تفصیلات چھپائیں";
             }
         }
 
-        // ای بک سٹور کا ڈیٹا اور فنکشنز
+        // زبانوں کا ڈیٹا بیس (اردو، عربی، انگلش)
+        const translations = {
+            ur: {
+                dir: "rtl",
+                title: "المدینہ اکیڈمی & بک اسٹور",
+                headerTitle: "المدینہ اکیڈمی & بک اسٹور",
+                headerSub: "قرآن و عربی زبان کا بہترین ادارہ اور آن لائن ای بک اسٹور (زیرِ نگرانی: أبو واصف)",
+                navHome: "ہوم پیج",
+                navAbout: "تعارف",
+                navCourses: "ہمارے کورسز",
+                navAdmission: "📝 آن لائن داخلہ",
+                navContact: "رابطہ",
+                navStore: "📚 مکتبہ (بک اسٹور)",
+                navWa: " واٹس ایپ",
+                welcomeTitle: "خوش آمدید",
+                welcomeDesc: "مدینہ اکیڈمی میں آپ کو خوش آمدید کہاجاتا ہے۔ یہ ادارہ خاص طور پر ان طلباء کے لیے قائم کیا گیا ہے جو کم مدت میں قرآن پاک کی درست تلاوت اور عربی زبان و گرامر میں مہارت حاصل کرنا چاہتے ہیں۔",
+                aboutTitle: "ہمارے بارے میں",
+                aboutDesc: "المدینہ اکیڈمی کے بانی اور معلم <strong>أبو واصف</strong> ہیں۔ اکیڈمی کا بنیادی مقصد قرآن و سنت کی تعلیمات اور عربی زبان کے قواعد کو آسان فہم انداز میں عامۃ الناس تک پہنچانا ہے۔",
+                coursesTitle: "ہمارے خصوصی کورسز",
+                coursesHint: "کسی بھی کورس کی مکمل تفصیلات اور خصوصیات پڑھنے کے لیے نیچے دیے گئے بٹن پر کلک کریں:",
+                c1Title: "ناظرہ قرآن پاک کورس",
+                c1Short: "درست تجوید اور مخارج کے ساتھ قرآن پاک کی روانی سے تلاوت سیکھیں۔",
+                c1P1: "قرآن مجید کو درست تلفظ، تجوید اور فہم کے ساتھ سیکھنا ہر مسلمان کی خواہش ہوتی ہے۔",
+                c1QSub: "(تم میں سے بہترین شخص وہ ہے جو قرآن سیکھے اور اسے سکھائے۔ - صحیح بخاری)",
+                c2Title: "عربی بول چال کورس",
+                c2Short: "روزمرہ کی گفتگو اور عربی جملے بنانے کا بہترین طریقہ۔",
+                c2P1: "عربی بول چال کا یہ جامع کورس روزمرہ گفتگو میں روانی پیدا کرنے کے لیے انتہائی مفید ہے۔",
+                c2QSub: "(عربی زبان سیکھو کیونکہ یہ تمہارے دین کا حصہ ہے۔)",
+                btnMore: "مزید تفصیلات پڑھیں",
+                admTitle: "آن لائن داخلہ (Admission)",
+                admDesc: "اگر آپ ہمارے کسی بھی کورس میں داخلہ لینا چاہتے ہیں، تو نیچے دیے گئے بٹن پر کلک کر کے اپنا فارم پُر کریں:",
+                admBoxTitle: "داخلہ فارم جمع کروانے کے لیے نیچے کلک کریں:",
+                admBtn: "فارم کھولیں اور داخلہ لیں",
+                storeTitle: "📚 مکتبہ ڈیجیٹل (کتب برائے فروخت)",
+                storeDesc: "اپنی پسندیدہ کتاب خریدنے کے لیے \"کتاب خریدیں\" کے بٹن پر کلک کریں",
+                buyBtn: "کتاب خریدیں",
+                contactTitle: "رابطہ کیجئے",
+                lblManager: "منتظم:",
+                lblPhone: "فون نمبر / واٹس ایپ:",
+                lblEmail: "ای میل:",
+                footerText: "جملہ حقوق محفوظ ہیں &copy; 2026 - المدینہ اکیڈمی & بک اسٹور"
+            },
+            ar: {
+                dir: "rtl",
+                title: "أكاديمية المدينة والمكتبة",
+                headerTitle: "أكاديمية المدينة والمكتبة الرقمية",
+                headerSub: "المعهد الأمثل للقرآن الكريم واللغة العربية ومتجر الكتب الإلكترونية (بإشراف: أبو واصف)",
+                navHome: "الرئيسية",
+                navAbout: "من نحن",
+                navCourses: "دوراتنا",
+                navAdmission: "📝 التسجيل الإلكتروني",
+                navContact: "اتصل بنا",
+                navStore: "📚 المكتبة الرقمية",
+                navWa: " واتساب",
+                welcomeTitle: "أهلاً وسهلاً",
+                welcomeDesc: "مرحباً بكم في أكاديمية المدينة. تم تأسيس هذا المعهد للطلاب الراغبين في إتقان تلاوة القرآن الكريم وقواعد اللغة العربية في وقت قصير.",
+                aboutTitle: "من نحن",
+                aboutDesc: "مؤسس ومعلم أكاديمية المدينة هو <strong>أبو واصف</strong>. الهدف الأساسي هو نشر تعلیم القرآن والسنة وقواعد اللغة العربية بأسلوب سهل.",
+                coursesTitle: "دوراتنا الخاصة",
+                coursesHint: "انقر على الزر أدناه لعرض التفاصيل الكاملة لأي دورة:",
+                c1Title: "دورة ناظرة القرآن الكريم",
+                c1Short: "تعلم تلاوة القرآن الكريم بطلاقة مع تجويد ومخارج صحيحة.",
+                c1P1: "تعلم القرآن الكريم بالنطق الصحيح والتجويد والفهم هو رغبة كل مسلم.",
+                c1QSub: "(خيركم من تعلم القرآن وعلمه - رواه البخاري)",
+                c2Title: "دورة المحادثة العربية",
+                c2Short: "أفضل طریقہ للحديث اليومي وبناء الجمل العربية.",
+                c2P1: "دورة المحادثة العربية الشاملة هذه هي الفرصة المثالية للتحدث باللغة العربية بطلاقة.",
+                c2QSub: "(تعلموا العربية فإنها من دينكم)",
+                btnMore: "عرض التفاصيل",
+                admTitle: "التسجيل الإلكتروني",
+                admDesc: "إذا كنت تريد التسجيل في أي من دوراتنا، انقر فوق الزر أدناه لملء النموذج:",
+                admBoxTitle: "انقر أدناه لإرسال استمارة التسجيل:",
+                admBtn: "افتح النموذج وسجل الآن",
+                storeTitle: "📚 المكتبة الرقمية (كتب للبيع)",
+                storeDesc: "انقر على زر \"شراء الكتاب\" لشراء كتابك المفضل عبر واتساب",
+                buyBtn: "شراء الكتاب",
+                contactTitle: "اتصل بنا",
+                lblManager: "المشرف:",
+                lblPhone: "رقم الهاتف / واتساب:",
+                lblEmail: "البريد الإلكتروني:",
+                footerText: "جميع الحقوق محفوظة &copy; 2026 - أكاديمية المدينة والمكتبة"
+            },
+            en: {
+                dir: "ltr",
+                title: "Al-Madina Academy & Book Store",
+                headerTitle: "Al-Madina Academy & Book Store",
+                headerSub: "The Best Institute for Quran & Arabic Language & Digital Book Store (Supervised by: Abu Wasif)",
+                navHome: "Home",
+                navAbout: "About Us",
+                navCourses: "Our Courses",
+                navAdmission: "📝 Online Admission",
+                navContact: "Contact",
+                navStore: "📚 Digital Store",
+                navWa: " WhatsApp",
+                welcomeTitle: "Welcome",
+                welcomeDesc: "Welcome to Al-Madina Academy. This institute is established for students who want to master Quran recitation and Arabic grammar in a short time.",
+                aboutTitle: "About Us",
+                aboutDesc: "The founder and teacher of Al-Madina Academy is <strong>Abu Wasif</strong>. The main objective is to spread Quranic teachings and Arabic language rules easily.",
+                coursesTitle: "Our Special Courses",
+                coursesHint: "Click the button below to view full details of any course:",
+                c1Title: "Nazra Quran Course",
+                c1Short: "Learn fluent Quran recitation with correct Tajweed and articulation.",
+                c1P1: "Learning the Holy Quran with correct pronunciation and understanding is the desire of every Muslim.",
+                c1QSub: "(The best among you are those who learn the Quran and teach it. - Sahih Bukhari)",
+                c2Title: "Arabic Conversation Course",
+                c2Short: "The best way to learn daily conversation and build Arabic sentences.",
+                c2P1: "This comprehensive conversational course is ideal for gaining natural fluency in spoken Arabic.",
+                c2QSub: "(Learn Arabic, for indeed it is part of your religion.)",
+                btnMore: "Read Details",
+                admTitle: "Online Admission",
+                admDesc: "If you want to enroll in any of our courses, click the button below to fill out the form:",
+                admBoxTitle: "Click below to submit admission form:",
+                admBtn: "Open Form & Enroll",
+                storeTitle: "📚 Digital Store (E-Books for Sale)",
+                storeDesc: "Click the \"Buy Book\" button to order your favorite e-book via WhatsApp",
+                buyBtn: "Buy Book",
+                contactTitle: "Contact Us",
+                lblManager: "Manager:",
+                lblPhone: "Phone / WhatsApp:",
+                lblEmail: "Email:",
+                footerText: "All Rights Reserved &copy; 2026 - Al-Madina Academy & Book Store"
+            }
+        };
+
         const products = [
-            { id: 1, name: "عربی گرامر سیکھیں (مکمل رہنما)", author: "ڈاکٹر احمد حسن", price: 500, image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=400&q=80", download_url: "#" },
-            { id: 2, name: "تفسیر و معارف القرآن (جلد 1)", author: "مولانا محمد شفیع", price: 1200, image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=400&q=80", download_url: "#" },
-            { id: 3, name: "سیرت النبی ﷺ (مکمل تاریخ)", author: "علامہ شبلی نعمانی", price: 800, image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&q=80", download_url: "#" }
+            { id: 1, name_ur: "عربی گرامر سیکھیں (مکمل رہنما)", name_ar: "تعلم النحو العربي (دليل شامل)", name_en: "Learn Arabic Grammar (Complete Guide)", author_ur: "ڈاکٹر احمد حسن", author_ar: "د. أحمد حسن", author_en: "Dr. Ahmad Hassan", price: "PKR 500", image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=400&q=80" },
+            { id: 2, name_ur: "تفسیر و معارف القرآن (جلد 1)", name_ar: "تفسير معارف القرآن (الجزء الأول)", name_en: "Tafseer Maarif-ul-Quran (Vol 1)", author_ur: "مولانا محمد شفیع", author_ar: "الشيخ محمد شفيع", author_en: "Maulana Muhammad Shafi", price: "PKR 1200", image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=400&q=80" },
+            { id: 3, name_ur: "سیرت النبی ﷺ (مکمل تاریخ)", name_ar: "السيرة النبوية (التاريخ الكامل)", name_en: "Seerat un Nabi (Full History)", author_ur: "علامہ شبلی نعمانی", author_ar: "العلامة شبلي النعماني", author_en: "Allama Shibli Nomani", price: "PKR 800", image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&q=80" }
         ];
 
-        function renderStoreProducts() {
-            const grid = document.getElementById('product-grid');
-            grid.innerHTML = products.map(p => `
-                <div class="tw-bg-gray-950 tw-p-4 tw-rounded-xl tw-border tw-border-gray-800 tw-flex tw-flex-col tw-justify-between">
-                    <div>
-                        <img src="${p.image}" alt="${p.name}" class="tw-h-40 tw-w-full tw-object-contain tw-mb-3 tw-rounded">
-                        <h3 class="tw-font-bold tw-text-white tw-text-sm">${p.name}</h3>
-                        <p class="tw-text-xs tw-text-gray-400 tw-mt-1">مصنف: ${p.author}</p>
-                    </div>
-                    <div class="tw-mt-4 tw-pt-3 tw-border-t tw-border-gray-800 tw-flex tw-items-center tw-justify-between">
-                        <span class="tw-text-emerald-400 tw-font-bold">PKR ${p.price}</span>
-                        <a href="${p.download_url}" target="_blank" class="tw-px-3 tw-py-1.5 tw-bg-emerald-600 hover:tw-bg-emerald-500 tw-text-white tw-text-xs tw-rounded-lg tw-font-bold">ڈاؤن لوڈ PDF</a>
-                    </div>
-                </div>
-            `).join('');
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            if (!t) return;
+
+            document.getElementById('html-root').setAttribute('lang', lang);
+            document.getElementById('html-root').setAttribute('dir', t.dir);
+            
+            document.getElementById('site-title').innerText = t.title;
+            document.getElementById('header-title').innerText = t.headerTitle;
+            document.getElementById('header-sub').innerText = t.headerSub;
+            
+            document.getElementById('nav-home').innerText = t.navHome;
+            document.getElementById('nav-about').innerText = t.navAbout;
+            document.getElementById('nav-courses').innerText = t.navCourses;
+            document.getElementById('nav-admission').innerText = t.navAdmission;
+            document.getElementById('nav-contact').innerText = t.navContact;
+            document.getElementById('nav-store').innerText = t.navStore;
+            document.getElementById('nav-wa').innerHTML = `<i class="fa-brands fa-whatsapp"></i>${t.navWa}`;
+
+            document.getElementById('welcome-title').innerText = t.welcomeTitle;
+            document.getElementById('welcome-desc').innerText = t.welcomeDesc;
+            document.getElementById('about-title').innerText = t.aboutTitle;
+            document.getElementById('about-desc').innerHTML = t.aboutDesc;
+            
+            document.getElementById('courses-title').innerText = t.coursesTitle;
+            document.getElementById('courses-hint').innerText = t.coursesHint;
+            document.getElementById('c1-title').innerText = t.c1Title;
+            document.getElementById('c1-short').innerText = t.c1Short;
+            document.getElementById('c1-p1').innerText = t.c1P1;
+            document.getElementById('c1-q-sub').innerText = t.c1QSub;
+
+            document.getElementById('c2-title').innerText = t.c2Title;
+            document.getElementById('c2-short').innerText = t.c2Short;
+            document.getElementById('c2-p1').innerText = t.c2P1;
+            document.getElementById('c2-q-sub').innerText = t.c2QSub;
+
+            document.querySelectorAll('.details-btn').forEach(btn => {
+                btn.innerText = t.btnMore;
+            });
+
+            document.getElementById('adm-title').innerText = t.admTitle;
+            document.getElementById('adm-desc').innerText = t.admDesc;
+            document.getElementById('adm-box-title').innerText = t.admBoxTitle;
+            document.getElementById('adm-btn').innerText = t.admBtn;
+
+            document.getElementById('store-title').innerText = t.storeTitle;
+            document.getElementById('store-desc').innerText = t.storeDesc;
+
+            document.getElementById('contact-title').innerText = t.contactTitle;
+            document.getElementById('lbl-manager').innerText = t.lblManager;
+            document.getElementById('lbl-phone').innerText = t.lblPhone;
+            document.getElementById('lbl-email').innerText = t.lblEmail;
+            document.getElementById('footer-text').innerHTML = t.footerText;
+
+            renderStoreProducts(lang);
         }
-        renderStoreProducts();
+
+        function renderStoreProducts(lang = 'ur') {
+            const grid = document.getElementById('product-grid');
+            const t = translations[lang];
+
+            grid.innerHTML = products.map(p => {
+                const bookName = lang === 'ar' ? p.name_ar : lang === 'en' ? p.name_en : p.name_ur;
+                const authorName = lang === 'ar' ? p.author_ar : lang === 'en' ? p.author_en : p.author_ur;
+                const msg = encodeURIComponent(`السلام علیکم! Order Request:\n📚 Book: ${bookName}\n💰 Price: ${p.price}`);
+
+                return `
+                    <div class="tw-bg-slate-950 tw-p-4 tw-rounded-xl tw-border tw-border-slate-800 tw-flex tw-flex-col tw-justify-between">
+                        <div>
+                            <img src="${p.image}" alt="${bookName}" class="tw-h-40 tw-w-full tw-object-contain tw-mb-3 tw-rounded">
+                            <h3 class="tw-font-bold tw-text-white tw-text-sm">${bookName}</h3>
+                            <p class="tw-text-xs tw-text-slate-400 tw-mt-1">${authorName}</p>
+                        </div>
+                        <div class="tw-mt-4 tw-pt-3 tw-border-t tw-border-slate-800 tw-flex tw-items-center tw-justify-between">
+                            <span class="tw-text-emerald-400 tw-font-bold">${p.price}</span>
+                            <a href="https://wa.me/254180111857?text=${msg}" target="_blank" class="tw-px-3 tw-py-2 tw-bg-amber-600 hover:tw-bg-amber-500 tw-text-white tw-text-xs tw-rounded-lg tw-font-bold tw-flex tw-items-center tw-gap-1">
+                                <i class="fa-solid fa-cart-shopping"></i> ${t.buyBtn}
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ابتدائی طور پر پروڈکٹس ڈسپلے کرنا
+        renderStoreProducts('ur');
     </script>
 </body>
 </html>
