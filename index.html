@@ -6,7 +6,7 @@
     <title id="site-title">المدینہ اکیڈمی & بک اسٹور</title>
     <!-- گوگل فونٹس -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS for Store Section -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -46,8 +46,9 @@
         body {
             background-color: #f8fafc;
             color: #334155;
-            line-height: 1.8;
+            line-height: 1.9;
             scroll-behavior: smooth;
+            font-size: 1.1rem;
         }
 
         /* 1. اردو سلیکٹ ہونے پر جمیل نوری نستعلیق */
@@ -78,30 +79,31 @@
         .arabic-quote, .arabic-text {
             font-family: 'Traditional Arabic', 'Amiri', serif !important;
             background: #f0fdf4;
-            border-right: 4px solid #16a34a;
+            border-right: 5px solid #16a34a;
             border-left: none;
-            padding: 12px 16px;
-            margin: 12px 0;
-            font-size: 1.35rem;
+            padding: 14px 18px;
+            margin: 15px 0;
+            font-size: 1.45rem;
             text-align: center;
             color: #15803d;
             font-weight: bold;
             direction: rtl;
+            border-radius: 6px;
         }
 
         html[dir="ltr"] .arabic-quote {
-            border-left: 4px solid #16a34a;
+            border-left: 5px solid #16a34a;
             border-right: none;
         }
 
-        /* زبان کی تبدیلی کا فلوٹنگ ڈراپ ڈاؤن */
+        /* زبان کی تبدیلی کا فلوٹنگ باکس */
         .lang-switcher-box {
             position: absolute;
             top: 15px;
             left: 15px;
             background: rgba(0, 51, 44, 0.9);
             color: white;
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
             z-index: 1001;
@@ -128,7 +130,7 @@
         header {
             background-color: #004d40;
             color: white;
-            padding: 40px 15px 25px 15px;
+            padding: 45px 15px 25px 15px;
             text-align: center;
             position: relative;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -153,7 +155,7 @@
             transition: background 0.3s;
             border-radius: 4px;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
         }
 
         nav a:hover {
@@ -182,7 +184,7 @@
         section {
             background: white;
             margin-bottom: 30px;
-            padding: 25px;
+            padding: 28px;
             border-radius: 12px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.04);
         }
@@ -193,20 +195,31 @@
             border-bottom: 3px solid #00796b;
             padding-bottom: 5px;
             display: inline-block;
-            font-size: 2rem;
+            font-size: 2.1rem;
+            cursor: pointer;
+        }
+
+        .toggle-box {
+            display: none;
+            margin-top: 15px;
+            background: #f8fafc;
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px dashed #cbd5e1;
+            text-align: justify;
         }
 
         .courses-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 22px;
             margin-top: 20px;
         }
 
         .course-card {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            padding: 20px;
+            padding: 22px;
             border-radius: 10px;
             display: flex;
             flex-direction: column;
@@ -217,13 +230,13 @@
             color: #047857;
             margin-bottom: 10px;
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 1.65rem;
         }
 
         .course-details {
             display: none;
             background: #ffffff;
-            padding: 15px;
+            padding: 18px;
             border-radius: 8px;
             border: 1px dashed #a7f3d0;
             margin-bottom: 15px;
@@ -240,16 +253,46 @@
             padding: 10px 14px;
             width: 100%;
             transition: 0.3s;
+            font-size: 1.1rem;
         }
 
         .details-btn:hover {
             background-color: #004d40;
         }
 
+        .social-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-yt { background-color: #FF0000; }
+        .btn-fb { background-color: #1877F2; }
+        .btn-tt { background-color: #000000; }
+        .btn-ig { background-color: #E4405F; }
+
         .admission-box {
             background: #fffbe2;
             border: 2px dashed #f59e0b;
-            padding: 20px;
+            padding: 22px;
             border-radius: 10px;
             text-align: center;
             margin-top: 20px;
@@ -259,7 +302,7 @@
             background-color: #1e293b;
             color: white;
             text-align: center;
-            padding: 20px 0;
+            padding: 22px 0;
             margin-top: 40px;
         }
     </style>
@@ -276,11 +319,11 @@
                 <option value="en">English</option>
             </select>
         </div>
-        <h1 id="header-title" style="font-size: 2.6rem;">المدینہ اکیڈمی & بک اسٹور</h1>
-        <p id="header-sub" style="font-size: 1.25rem; color: #b2dfdb;">قرآن و عربی زبان کا بہترین ادارہ اور آن لائن ای بک اسٹور (زیرِ نگرانی: أبو واصف)</p>
+        <h1 id="header-title" style="font-size: 2.8rem;">المدینہ اکیڈمی & بک اسٹور</h1>
+        <p id="header-sub" style="font-size: 1.3rem; color: #b2dfdb;">قرآن و عربی زبان کا بہترین ادارہ اور آن لائن ای بک اسٹور (زیرِ نگرانی: أبو واصف)</p>
     </header>
 
-    <!-- نیویگیشن بار (ترتیب: ہوم ➔ تعارف ➔ کورسز ➔ آن لائن داخلہ ➔ رابطہ ➔ مکتبہ (بک اسٹور) ➔ واٹس ایپ) -->
+    <!-- نیویگیشن بار -->
     <nav>
         <a href="#home" id="nav-home">ہوم پیج</a>
         <a href="#about" id="nav-about">تعارف</a>
@@ -294,36 +337,77 @@
     <!-- مین کنٹینر -->
     <div class="container">
         
-        <!-- ہوم / خوش آمدید -->
+        <!-- 1. خوش آمدید سیکشن -->
         <section id="home">
-            <h2 id="welcome-title">خوش آمدید</h2>
-            <p id="welcome-desc">مدینہ اکیڈمی میں آپ کو خوش آمدید کہاجاتا ہے۔ یہ ادارہ خاص طور پر ان طلباء کے لیے قائم کیا گیا ہے جو کم مدت میں قرآن پاک کی درست تلاوت اور عربی زبان و گرامر میں مہارت حاصل کرنا چاہتے ہیں۔</p>
+            <h2 id="welcome-title" onclick="toggleSection('welcome-more', 'welcome-btn')">خوش آمدید <span>👇</span></h2>
+            <p id="welcome-short" style="font-size: 1.25rem; font-weight: bold; color: #004d40;">
+                المدینہ اکیڈمی میں آپ کو پرخلوص خوش آمدید کہا جاتا ہے۔
+            </p>
+            
+            <div id="welcome-more" class="toggle-box">
+                <p id="welcome-p1">
+                    المدینہ اکیڈمی ایک ممتاز آن لائن تعلیمی ادارہ ہے جو دنیا بھر کے تمام مسلم طلباء کو مختصر اور جامع مدت میں قرآن پاک کی صحیح تجوید و تلاوت اور عربی بول چال میں کامل مہارت فراہم کرنے کے لیے قائم کیا گیا ہے۔
+                </p>
+                <p id="welcome-p2" style="margin-top: 10px;">
+                    <strong>ہماری علمی سرگرمیاں اور کورسز:</strong> ہماری اکیڈمی بنیادی مدنی قاعدہ، ناظرہ قرآن پاک مع تجوید، گفتگو و تکلم پر مبنی جدید عربی بول چال، بنیادی نحو و صرف (عربی گرامر)، اور فہمِ دین جیسے خصوصی پروگرامز پیش کرتی ہے۔ ہمارا مقصد یہ ہے کہ ہر طالب علم بلا جھجھک قرآنی علوم کو سمجھے اور روزمرہ زندگی میں عربی زبان بولنے کے قابل ہو۔
+                </p>
+            </div>
+            
+            <button class="details-btn" style="margin-top: 12px; max-width: 220px;" onclick="toggleSection('welcome-more', this)" id="welcome-btn">مزید تعارف پڑھیں</button>
         </section>
 
-        <!-- ہمارے بارے میں -->
+        <!-- 2. ہمارے بارے میں (معلم و بانی کا تفصیلی تعارف) -->
         <section id="about">
-            <h2 id="about-title">ہمارے بارے میں</h2>
-            <p id="about-desc">المدینہ اکیڈمی کے بانی اور معلم <strong>أبو واصف</strong> ہیں۔ اکیڈمی کا بنیادی مقصد قرآن و سنت کی تعلیمات اور عربی زبان کے قواعد کو آسان فہم انداز میں عامۃ الناس تک پہنچانا ہے۔</p>
+            <h2 id="about-title" onclick="toggleSection('about-more', 'about-btn')">ہمارے بارے میں <span>👇</span></h2>
+            <p id="about-short" style="font-size: 1.2rem;">
+                المدینہ اکیڈمی کے بانی اور اصلی معلم <strong>أبو واصف (ابو العربی مدنی)</strong> ہیں۔
+            </p>
+
+            <div id="about-more" class="toggle-box">
+                <p id="about-p1">
+                    أبو واصف (شاہداصل نام: شاہد حسین) گزشتہ 8 سال سے زائد عرصے سے غیر عربوں کو آسان اور جدید سائنسی اسلوب کے ساتھ عربی بول چال اور قرآنی علوم پڑھا رہے ہیں۔ آپ متعدد معروف نصابی و دعوتی کتب کے مصنف و ترتیب کار ہیں، جن میں 16 اسباق پر مشتمل عربی گفتگو کی مشہور کتاب <em>"المعلم في التكلم"</em>، commentary <em>"لسان الناطقين"</em> اور مدینہ اکیڈمی کی 5 کتب پر مشتمل خصوصی عربی سیریز شامل ہیں۔
+                </p>
+                <p id="about-p2" style="margin-top: 10px;">
+                    آپ سوشل میڈیا، ڈیجیٹل پلیٹ فارمز اور ڈسٹنس لرننگ کے ذریعے دنیا کے مختلف ممالک میں ہزاروں طلباء کو عربی زبان اور دین کا فہم فراہم کر رہے ہیں۔
+                </p>
+                
+                <h4 style="margin-top: 15px; font-weight: bold; color: #004d40;" id="social-title">ہمارے سوشل میڈیا اور آفیشل چینلز:</h4>
+                <div class="social-links">
+                    <a href="https://youtube.com" target="_blank" class="social-btn btn-yt"><i class="fa-brands fa-youtube"></i> YouTube Channel</a>
+                    <a href="https://facebook.com" target="_blank" class="social-btn btn-fb"><i class="fa-brands fa-facebook"></i> Facebook Page</a>
+                    <a href="https://tiktok.com" target="_blank" class="social-btn btn-tt"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+                    <a href="https://instagram.com" target="_blank" class="social-btn btn-ig"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
+
+            <button class="details-btn" style="margin-top: 12px; max-width: 220px;" onclick="toggleSection('about-more', this)" id="about-btn">مکمل سوانح و لنکس دیکھیں</button>
         </section>
 
-        <!-- کورسز -->
+        <!-- 3. کورسز -->
         <section id="courses">
             <h2 id="courses-title">ہمارے خصوصی کورسز</h2>
             <p style="margin-bottom: 15px; color: #64748b;" id="courses-hint">کسی بھی کورس کی مکمل تفصیلات اور خصوصیات پڑھنے کے لیے نیچے دیے گئے بٹن پر کلک کریں:</p>
             
             <div class="courses-grid">
+                
                 <!-- 1. ناظرہ قرآن پاک -->
                 <div class="course-card">
                     <div>
                         <h3 id="c1-title">ناظرہ قرآن پاک کورس</h3>
                         <p id="c1-short" style="text-align: center; color: #475569;">درست تجوید اور مخارج کے ساتھ قرآن پاک کی روانی سے تلاوت سیکھیں۔</p>
+                        
                         <div class="course-details" id="c1-details">
-                            <p id="c1-p1">قرآن مجید کو درست تلفظ، تجوید اور فہم کے ساتھ سیکھنا ہر مسلمان کی خواہش ہوتی ہے۔</p>
-                            <!-- عربی اقتباس ہمیشہ ٹریڈیشنل عربی میں رہے گا -->
+                            <p id="c1-p1">قرآن مجید کو درست تلفظ، تجوید اور فہم کے ساتھ سیکھنا ہر مسلمان کی خواہش ہوتی ہے۔ یہ کورس ان تمام افراد کے لیے ایک بہترین موقع ہے جو قرآن کریم کی تلاوت کو خوبصورت، درست اور بااثر بنانا چاہتے ہیں۔ قرآن مجید اللہ تعالٰی کا مقدس کلام ہے اور اس کی تعلیم و تعلم کی فضیلت کا اندازہ نبی کریم ﷺ کے اس مبارک فرمان سے ہوتا ہے:</p>
+                            
+                            <!-- عربی اقتباس (ہمیشہ ٹریڈیشنل عربی میں رہے گا) -->
                             <div class="arabic-quote">
                                 «خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ»<br>
-                                <span style="font-size: 0.95rem; font-weight: normal; color: #334155;" id="c1-q-sub">(تم میں سے بہترین شخص وہ ہے جو قرآن سیکھے اور اسے سکھائے۔ - صحیح بخاری)</span>
+                                <span style="font-size: 1rem; font-weight: normal; color: #334155;" id="c1-qsub">(تم میں سے بہترین شخص وہ ہے جو قرآن سیکھے اور اسے سکھائے۔ - صحیح بخاری)</span>
                             </div>
+                            
+                            <p id="c1-p2">اس عظیم نبوی ارشاد کو مشعلِ راہ بناتے ہوئے اس کورس کو اس طرح ترتیب دیا گیا ہے کہ آپ بنیادی مخارج کی درستگی، تجوید کے قواعد اور تلاوت کے صحيح طریقہ کار کو آسانی سے سمجھ سکیں۔ کورس میں ہر طالب علم کی انفرادی اصلاح پر توجہ دی جائے گی تاکہ مخارج کی غلطیوں کو دور کر کے تلاوت میں حسن اور روانی پیدا کی جا سکے۔</p>
+                            
+                            <p id="c1-p3" style="margin-top: 8px;"><strong>اہم خصوصیت:</strong> اس کورس کی سب سے اہم اور نمایاں خصوصیت اس کے خصوصی پریکٹس سیشنز ہیں۔ صرف قواعد یاد کرنا کافی نہیں ہوتا، اسی لیے ان عملی سیشنز میں آپ کو استاد کے سامنے باقاعدگی سے تلاوت کی مشق کروائی جائے گی۔ اس سے نہ صرف آپ کا اعتماد بڑھے گا بلکہ آپ کی تلاوت میں درستگی، خوبصورتی اور فطری بہاؤ پیدا ہوگا۔ یہ کورس آپ کے لیے قرآن کریم سے اپنا تعلق مضبوط کرنے کا بہترین ذریعہ بنے گا۔</p>
                         </div>
                     </div>
                     <button class="details-btn" onclick="toggleDetails('c1-details', this)" id="c1-btn">مزید تفصیلات پڑھیں</button>
@@ -334,17 +418,24 @@
                     <div>
                         <h3 id="c2-title">عربی بول چال کورس</h3>
                         <p id="c2-short" style="text-align: center; color: #475569;">روزمرہ کی گفتگو اور عربی جملے بنانے کا بہترین طریقہ۔</p>
+                        
                         <div class="course-details" id="c2-details">
-                            <p id="c2-p1">عربی بول چال کا یہ جامع کورس روزمرہ گفتگو میں روانی پیدا کرنے کے لیے انتہائی مفید ہے۔</p>
+                            <p id="c2-p1">عربی بول چال کا یہ جامع کورس ان تمام افراد کے لیے ایک بہترین موقع ہے جو عربی زبان سیکھنے، سمجھنے اور اسے اپنی روزمرہ گفتگو میں روانی کے ساتھ بولنے کے خواہش مند ہیں۔ عربی زبان کی اہمیت اور اس سے محبت کا اندازہ اس روایت سے ہوتا ہے جس میں نبی کریم ﷺ نے ارشاد فرمایا:</p>
+                            
                             <!-- عربی اقتباس -->
                             <div class="arabic-quote">
-                                «تَعَلَّمُوا الْعَرَبِيَّةَ فَإِنَّهَا مِنْ دِينِكُمْ»<br>
-                                <span style="font-size: 0.95rem; font-weight: normal; color: #334155;" id="c2-q-sub">(عربی زبان سیکھو کیونکہ یہ تمہارے دین کا حصہ ہے۔)</span>
+                                «أَحِبُّوا الْعَرَبَ لِثَلَاثٍ: لِأَنِّي عَرَبِيٌّ، وَالْقُرْآنَ عَرَبِيٌّ، وَكَلامَ أَهْلِ الْجَنَّةِ عَرَبِيٌّ»<br>
+                                <span style="font-size: 1rem; font-weight: normal; color: #334155;" id="c2-qsub">(عرب سے تین وجہ سے محبت کرو: اس لیے کہ میں عربی ہوں، قرآن عربی میں ہے، اور اہل جنت کا کلام عربی ہوگا۔ - طبرانی، بیہقی)</span>
                             </div>
+                            
+                            <p id="c2-p2">اس مبارک جذبے اور اہم مقاصد کو سامنے رکھتے ہوئے، اس کورس میں آپ کو روزمرہ کی گفتگو، سفر، خرید و فروخت اور عام ملاقاتوں میں استعمال ہونے والی بااثر عربی زبان سکھائی جائے گی۔ آپ کو یہ سیکھنے کا موقع ملے گا کہ کس طرح درست الفاظ کا انتخاب کر کے واضح اور خوبصورت جملے بنائے جاتے ہیں۔</p>
+                            
+                            <p id="c2-p3" style="margin-top: 8px;"><strong>اہم خصوصیت:</strong> اس کورس کی سب سے نمایاں خصوصیت اس کے خصوصی پریکٹس سیشنز ہیں۔ محض گرامر اور سبق پڑھ لینا کافی نہیں ہوتا، اسی لیے ان عملی سیشنز میں آپ کو باقاعدگی سے بولنے اور گفتگو کرنے کی مشق کروائی جائے گی۔ اس سے آپ کی ہچکچاہٹ ختم ہوگی، تلفظ کی ادائیگی درست ہوگی اور بول چال میں فطری روانی پیدا ہوگی۔ یہ کورس عربی زبان سے آپ کے تعلق کو مضبوط بنانے کا بہترین ذریعہ ہے۔</p>
                         </div>
                     </div>
                     <button class="details-btn" onclick="toggleDetails('c2-details', this)" id="c2-btn">مزید تفصیلات پڑھیں</button>
                 </div>
+
             </div>
         </section>
 
@@ -393,6 +484,23 @@
 
     <!-- الترجمہ والملفات البرمجية (JavaScript) -->
     <script>
+        function toggleSection(boxId, btn) {
+            const box = document.getElementById(boxId);
+            const lang = document.getElementById('html-root').getAttribute('lang');
+
+            if (box.style.display === "block") {
+                box.style.display = "none";
+                if(typeof btn === 'object') {
+                    btn.innerText = (lang === 'ar') ? "عرض المزيد" : (lang === 'en') ? "Read More" : "مزید تعارف پڑھیں";
+                }
+            } else {
+                box.style.display = "block";
+                if(typeof btn === 'object') {
+                    btn.innerText = (lang === 'ar') ? "إخفاء التفاصيل" : (lang === 'en') ? "Hide Details" : "تفصیلات چھپائیں";
+                }
+            }
+        }
+
         function toggleDetails(id, btn) {
             const detailsBox = document.getElementById(id);
             const lang = document.getElementById('html-root').getAttribute('lang');
@@ -406,7 +514,7 @@
             }
         }
 
-        // زبانوں کا ڈیٹا بیس (اردو، عربی، انگلش)
+        // زبانوں کا مکمل ڈیٹا بیس (اردو، عربی، انگلش)
         const translations = {
             ur: {
                 dir: "rtl",
@@ -421,19 +529,30 @@
                 navStore: "📚 مکتبہ (بک اسٹور)",
                 navWa: " واٹس ایپ",
                 welcomeTitle: "خوش آمدید",
-                welcomeDesc: "مدینہ اکیڈمی میں آپ کو خوش آمدید کہاجاتا ہے۔ یہ ادارہ خاص طور پر ان طلباء کے لیے قائم کیا گیا ہے جو کم مدت میں قرآن پاک کی درست تلاوت اور عربی زبان و گرامر میں مہارت حاصل کرنا چاہتے ہیں۔",
+                welcomeShort: "المدینہ اکیڈمی میں آپ کو پرخلوص خوش آمدید کہا جاتا ہے۔",
+                welcomeP1: "المدینہ اکیڈمی ایک ممتاز آن لائن تعلی تعلیمی ادارہ ہے جو دنیا بھر کے تمام مسلم طلباء کو مختصر اور جامع مدت میں قرآن پاک کی صحیح تجوید و تلاوت اور عربی بول چال میں کامل مہارت فراہم کرنے کے لیے قائم کیا گیا ہے۔",
+                welcomeP2: "<strong>ہماری علمی سرگرمیاں اور کورسز:</strong> ہماری اکیڈمی بنیادی مدنی قاعدہ، ناظرہ قرآن پاک مع تجوید، گفتگو و تکلم پر مبنی جدید عربی بول چال، بنیادی نحو و صرف (عربی گرامر)، اور فہمِ دین جیسے خصوصی پروگرامز پیش کرتی ہے۔ ہمارا مقصد یہ ہے کہ ہر طالب علم بلا جھجھک قرآنی علوم کو سمجھے اور روزمرہ زندگی میں عربی زبان بولنے کے قابل ہو۔",
+                btnWelcome: "مزید تعارف پڑھیں",
                 aboutTitle: "ہمارے بارے میں",
-                aboutDesc: "المدینہ اکیڈمی کے بانی اور معلم <strong>أبو واصف</strong> ہیں۔ اکیڈمی کا بنیادی مقصد قرآن و سنت کی تعلیمات اور عربی زبان کے قواعد کو آسان فہم انداز میں عامۃ الناس تک پہنچانا ہے۔",
+                aboutShort: "المدینہ اکیڈمی کے بانی اور اصلی معلم <strong>أبو واصف (ابو العربی مدنی)</strong> ہیں۔",
+                aboutP1: "أبو واصف (اصل نام: شاہد حسین) گزشتہ 8 سال سے زائد عرصے سے غیر عربوں کو آسان اور جدید سائنسی اسلوب کے ساتھ عربی بول چال اور قرآنی علوم پڑھا رہے ہیں۔ آپ متعدد معروف نصابی و دعوتی کتب کے مصنف و ترتیب کار ہیں، جن میں 16 اسباق پر مشتمل عربی گفتگو کی مشہور کتاب \"المعلم في التكلم\"، لسان الناطقين اور مدینہ اکیڈمی کی 5 کتب پر مشتمل خصوصی عربی سیریز شامل ہیں۔",
+                aboutP2: "آپ سوشل میڈیا، ڈیجیٹل پلیٹ فارمز اور ڈسٹنس لرننگ کے ذریعے دنیا کے مختلف ممالک میں ہزاروں طلباء کو عربی زبان اور دین کا فہم فراہم کر رہے ہیں۔",
+                socialTitle: "ہمارے سوشل میڈیا اور آفیشل چینلز:",
+                btnAbout: "مکمل سوانح و لنکس دیکھیں",
                 coursesTitle: "ہمارے خصوصی کورسز",
                 coursesHint: "کسی بھی کورس کی مکمل تفصیلات اور خصوصیات پڑھنے کے لیے نیچے دیے گئے بٹن پر کلک کریں:",
                 c1Title: "ناظرہ قرآن پاک کورس",
                 c1Short: "درست تجوید اور مخارج کے ساتھ قرآن پاک کی روانی سے تلاوت سیکھیں۔",
-                c1P1: "قرآن مجید کو درست تلفظ، تجوید اور فہم کے ساتھ سیکھنا ہر مسلمان کی خواہش ہوتی ہے۔",
+                c1P1: "قرآن مجید کو درست تلفظ، تجوید اور فہم کے ساتھ سیکھنا ہر مسلمان کی خواہش ہوتی ہے۔ یہ کورس ان تمام افراد کے لیے ایک بہترین موقع ہے جو قرآن کریم کی تلاوت کو خوبصورت، درست اور بااثر بنانا چاہتے ہیں۔",
                 c1QSub: "(تم میں سے بہترین شخص وہ ہے جو قرآن سیکھے اور اسے سکھائے۔ - صحیح بخاری)",
+                c1P2: "اس عظیم نبوی ارشاد کو مشعلِ راہ بناتے ہوئے اس کورس کو اس طرح ترتیب دیا گیا ہے کہ آپ بنیادی مخارج کی درستگی اور تجوید کے قواعد آسانی سے سمجھ سکیں۔",
+                c1P3: "<strong>اہم خصوصیت:</strong> اس کورس کی سب سے نمایاں خصوصیت اس کے خصوصی پریکٹس سیشنز ہیں جس میں استاد کے سامنے تلاوت کی باقاعدہ مشق کروائی جاتی ہے۔",
                 c2Title: "عربی بول چال کورس",
                 c2Short: "روزمرہ کی گفتگو اور عربی جملے بنانے کا بہترین طریقہ۔",
-                c2P1: "عربی بول چال کا یہ جامع کورس روزمرہ گفتگو میں روانی پیدا کرنے کے لیے انتہائی مفید ہے۔",
-                c2QSub: "(عربی زبان سیکھو کیونکہ یہ تمہارے دین کا حصہ ہے۔)",
+                c2P1: "عربی بول چال کا یہ جامع کورس ان تمام افراد کے لیے ایک بہترین موقع ہے جو عربی زبان سیکھنے اور روانی سے بولنے کے خواہش مند ہیں۔",
+                c2QSub: "(عرب سے تین وجہ سے محبت کرو: اس لیے کہ میں عربی ہوں، قرآن عربی میں ہے، اور اہل جنت کا کلام عربی ہوگا۔ - طبرانی، بیہقی)",
+                c2P2: "اس کورس میں آپ کو روزمرہ کی گفتگو، سفر اور خرید و فروخت میں استعمال ہونے والی بااثر عربی زبان سکھائی جائے گی۔",
+                c2P3: "<strong>اہم خصوصیت:</strong> خصوصی پریکٹس سیشنز جن میں باقاعدگی سے گفتگو کی مشق سے بول چال میں فطری روانی پیدا ہوتی ہے۔",
                 btnMore: "مزید تفصیلات پڑھیں",
                 admTitle: "آن لائن داخلہ (Admission)",
                 admDesc: "اگر آپ ہمارے کسی بھی کورس میں داخلہ لینا چاہتے ہیں، تو نیچے دیے گئے بٹن پر کلک کر کے اپنا فارم پُر کریں:",
@@ -461,19 +580,30 @@
                 navStore: "📚 المكتبة الرقمية",
                 navWa: " واتساب",
                 welcomeTitle: "أهلاً وسهلاً",
-                welcomeDesc: "مرحباً بكم في أكاديمية المدينة. تم تأسيس هذا المعهد للطلاب الراغبين في إتقان تلاوة القرآن الكريم وقواعد اللغة العربية في وقت قصير.",
+                welcomeShort: "نرحب بكم أجمل ترحيب في أكاديمية المدينة.",
+                welcomeP1: "أكاديمية المدينة هي معهد تعليمي متميز عبر الإنترنت تم تأسيسه لمساعدة الطلاب المسلمين في جميع أنحاء العالم على إتقان تلاوة القرآن الكريم والتحدث باللغة العربية بطلاقة في وقت قصير.",
+                welcomeP2: "<strong>أنشطتنا ودوراتنا التعليمية:</strong> تقدم الأكاديمية القاعدة المدنية، ناظرة القرآن بالتجويد، المحادثة العربية الحديثة، النحو والصرف، ودورة فهم الدين.",
+                btnWelcome: "قراءة المزيد",
                 aboutTitle: "من نحن",
-                aboutDesc: "مؤسس ومعلم أكاديمية المدينة هو <strong>أبو واصف</strong>. الهدف الأساسي هو نشر تعلیم القرآن والسنة وقواعد اللغة العربية بأسلوب سهل.",
+                aboutShort: "مؤسس ومعلم أكاديمية المدينة هو <strong>أبو واصف (أبو العربي المدني)</strong>.",
+                aboutP1: "أبو واصف (شاهد حسين) يقوم بتدريس اللغة العربية والعلوم القرآنية للناطقين بغيرها منذ أكثر من 8 سنوات. وهو مؤلف لعدة كتب علمية منها \"المعلم في التكلم\" و\"لسان الناطقين\" وسلسلة أكاديمية المدينة.",
+                aboutP2: "يقدم التعليم لآلاف الطلاب حول العالم عبر المنصات الرقمية والتعليم عن بُعد.",
+                socialTitle: "قنواتنا الرسمية على وسائل التواصل:",
+                btnAbout: "عرض السيرة والروابط",
                 coursesTitle: "دوراتنا الخاصة",
                 coursesHint: "انقر على الزر أدناه لعرض التفاصيل الكاملة لأي دورة:",
                 c1Title: "دورة ناظرة القرآن الكريم",
                 c1Short: "تعلم تلاوة القرآن الكريم بطلاقة مع تجويد ومخارج صحيحة.",
                 c1P1: "تعلم القرآن الكريم بالنطق الصحيح والتجويد والفهم هو رغبة كل مسلم.",
                 c1QSub: "(خيركم من تعلم القرآن وعلمه - رواه البخاري)",
+                c1P2: "تم تصميم هذه الدورة لمساعدتك على فهم المخارج الصحيحة وقواعد التجويد بكل سهولة.",
+                c1P3: "<strong>المميزات الرئيسية:</strong> جلسات تدريبية عملية منتظمة مع المعلم لتحسين الطلاقة والثقة في التلاوة.",
                 c2Title: "دورة المحادثة العربية",
-                c2Short: "أفضل طریقہ للحديث اليومي وبناء الجمل العربية.",
+                c2Short: "أفضل طريقة للحديث اليومي وبناء الجمل العربية.",
                 c2P1: "دورة المحادثة العربية الشاملة هذه هي الفرصة المثالية للتحدث باللغة العربية بطلاقة.",
-                c2QSub: "(تعلموا العربية فإنها من دينكم)",
+                c2QSub: "(أحبوا العرب لثلاث: لأني عربي، والقرآن عربي، وكلام أهل الجنة عربي - الطبراني والبيهقي)",
+                c2P2: "ستتعلم كيفية اختيار الكلمات المناسبة وبناء جمل واضحة للمواقف اليومية.",
+                c2P3: "<strong>المميزات الرئيسية:</strong> جلسات تدريبية عملية منتظمة للمحادثة واكتساب الطلاقة الطبيعية.",
                 btnMore: "عرض التفاصيل",
                 admTitle: "التسجيل الإلكتروني",
                 admDesc: "إذا كنت تريد التسجيل في أي من دوراتنا، انقر فوق الزر أدناه لملء النموذج:",
@@ -501,19 +631,30 @@
                 navStore: "📚 Digital Store",
                 navWa: " WhatsApp",
                 welcomeTitle: "Welcome",
-                welcomeDesc: "Welcome to Al-Madina Academy. This institute is established for students who want to master Quran recitation and Arabic grammar in a short time.",
+                welcomeShort: "A warm welcome to you at Al-Madina Academy.",
+                welcomeP1: "Al-Madina Academy is a premier online educational institute established to provide Muslim students worldwide with fluent Quran recitation, Tajweed, and mastery in spoken Arabic in a short duration.",
+                welcomeP2: "<strong>Our Academic Activities & Courses:</strong> We offer Madani Qaida, Nazra Quran with Tajweed, Modern Spoken Arabic, Basic Nahw & Sarf (Grammar), and Islamic Understanding courses.",
+                btnWelcome: "Read More",
                 aboutTitle: "About Us",
-                aboutDesc: "The founder and teacher of Al-Madina Academy is <strong>Abu Wasif</strong>. The main objective is to spread Quranic teachings and Arabic language rules easily.",
+                aboutShort: "The founder and chief instructor of Al-Madina Academy is <strong>Abu Wasif (Abu Al-Arabi Madani)</strong>.",
+                aboutP1: "Abu Wasif (Shahid Hussain) has been teaching Arabic conversation and Quranic studies to non-Arabs for over 8 years. He is the author of several renowned textbooks including 'Al-Mu'allim fi al-Takallum', 'Lisan al-Natiqin', and a 5-book series for Madina Academy.",
+                aboutP2: "Teaching thousands of global students through digital platforms and distance learning.",
+                socialTitle: "Our Official Social Media Channels:",
+                btnAbout: "View Bio & Links",
                 coursesTitle: "Our Special Courses",
                 coursesHint: "Click the button below to view full details of any course:",
                 c1Title: "Nazra Quran Course",
                 c1Short: "Learn fluent Quran recitation with correct Tajweed and articulation.",
                 c1P1: "Learning the Holy Quran with correct pronunciation and understanding is the desire of every Muslim.",
                 c1QSub: "(The best among you are those who learn the Quran and teach it. - Sahih Bukhari)",
+                c1P2: "Designed to help you easily understand basic articulation points, Tajweed rules, and correct recitation methods.",
+                c1P3: "<strong>Key Feature:</strong> Regular practical recitation sessions with the teacher to build confidence and fluency.",
                 c2Title: "Arabic Conversation Course",
                 c2Short: "The best way to learn daily conversation and build Arabic sentences.",
                 c2P1: "This comprehensive conversational course is ideal for gaining natural fluency in spoken Arabic.",
-                c2QSub: "(Learn Arabic, for indeed it is part of your religion.)",
+                c2QSub: "(Love the Arabs for three reasons: because I am an Arab, the Quran is in Arabic, and the language of Paradise is Arabic. - Al-Tabarani)",
+                c2P2: "Learn how to choose the right words and form clear, beautiful sentences for travel, shopping, and everyday meetings.",
+                c2P3: "<strong>Key Feature:</strong> Regular practical speaking sessions to eliminate hesitation and develop natural fluency.",
                 btnMore: "Read Details",
                 admTitle: "Online Admission",
                 admDesc: "If you want to enroll in any of our courses, click the button below to fill out the form:",
@@ -555,25 +696,39 @@
             document.getElementById('nav-store').innerText = t.navStore;
             document.getElementById('nav-wa').innerHTML = `<i class="fa-brands fa-whatsapp"></i>${t.navWa}`;
 
-            document.getElementById('welcome-title').innerText = t.welcomeTitle;
-            document.getElementById('welcome-desc').innerText = t.welcomeDesc;
-            document.getElementById('about-title').innerText = t.aboutTitle;
-            document.getElementById('about-desc').innerHTML = t.aboutDesc;
-            
+            document.getElementById('welcome-title').innerHTML = t.welcomeTitle + " <span>👇</span>";
+            document.getElementById('welcome-short').innerText = t.welcomeShort;
+            document.getElementById('welcome-p1').innerText = t.welcomeP1;
+            document.getElementById('welcome-p2').innerHTML = t.welcomeP2;
+            document.getElementById('welcome-btn').innerText = t.btnWelcome;
+
+            document.getElementById('about-title').innerHTML = t.aboutTitle + " <span>👇</span>";
+            document.getElementById('about-short').innerHTML = t.aboutShort;
+            document.getElementById('about-p1').innerText = t.aboutP1;
+            document.getElementById('about-p2').innerText = t.aboutP2;
+            document.getElementById('social-title').innerText = t.socialTitle;
+            document.getElementById('about-btn').innerText = t.btnAbout;
+
             document.getElementById('courses-title').innerText = t.coursesTitle;
             document.getElementById('courses-hint').innerText = t.coursesHint;
             document.getElementById('c1-title').innerText = t.c1Title;
             document.getElementById('c1-short').innerText = t.c1Short;
             document.getElementById('c1-p1').innerText = t.c1P1;
-            document.getElementById('c1-q-sub').innerText = t.c1QSub;
+            document.getElementById('c1-qsub').innerText = t.c1QSub;
+            document.getElementById('c1-p2').innerText = t.c1P2;
+            document.getElementById('c1-p3').innerHTML = t.c1P3;
 
             document.getElementById('c2-title').innerText = t.c2Title;
             document.getElementById('c2-short').innerText = t.c2Short;
             document.getElementById('c2-p1').innerText = t.c2P1;
-            document.getElementById('c2-q-sub').innerText = t.c2QSub;
+            document.getElementById('c2-qsub').innerText = t.c2QSub;
+            document.getElementById('c2-p2').innerText = t.c2P2;
+            document.getElementById('c2-p3').innerHTML = t.c2P3;
 
             document.querySelectorAll('.details-btn').forEach(btn => {
-                btn.innerText = t.btnMore;
+                if(btn.id !== 'welcome-btn' && btn.id !== 'about-btn') {
+                    btn.innerText = t.btnMore;
+                }
             });
 
             document.getElementById('adm-title').innerText = t.admTitle;
@@ -620,7 +775,6 @@
             }).join('');
         }
 
-        // ابتدائی طور پر پروڈکٹس ڈسپلے کرنا
         renderStoreProducts('ur');
     </script>
 </body>
